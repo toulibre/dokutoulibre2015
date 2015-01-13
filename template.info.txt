@@ -1,7 +1,7 @@
-base     toulibre2015
-author   Paul in 't Hout
-email    badeendjuh@email.com
-date     2014-09-17
-name     Bootstrap Simplified Template
-desc     DokuWiki template for Simplified content sharing.
-url      https://github.com/badeendjuh/dokubootstrap-simplified
+base     dokutoulibre2015
+author   Toulibre
+email    contact@toulibre.org
+date     2015-01-14
+name     Toulibre Theme
+desc     Based on Bootstrap Simplified Template by Paul in 't Hout, DokuWiki template for Simplified content sharing.
+url      https://github.com/toulibre/dokutoulibre2014
