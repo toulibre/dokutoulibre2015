@@ -221,4 +221,65 @@ function dw($message) {
 }
 
 
+/**
+ * Hierarchical breadcrumbs
+ *
+ * This code was suggested as replacement for the usual breadcrumbs.
+ * It only makes sense with a deep site structure.
+ *
+ * @author Andreas Gohr <andi@splitbrain.org>
+ * @author Nigel McNie <oracle.shinoda@gmail.com>
+ * @author Sean Coates <sean@caedmon.net>
+ * @author <fredrik@averpil.com>
+ * @todo   May behave strangely in RTL languages
+ * @param string $sep Separator between entries
+ * @return bool
+ */
+function _tpl_youarehere($sep = '') {
+    global $conf;
+    global $ID;
+    global $lang;
+
+    // check if enabled
+    if(!$conf['youarehere']) return false;
+
+    $parts = explode(':', $ID);
+    $count = count($parts);
+
+    echo '<ol class="breadcrumb">';
+    echo '<span class="bchead text-hide">'.$lang['youarehere'].' </span>';
+
+    // always print the startpage
+    echo '<li><span class="home">';
+    tpl_pagelink(':'.$conf['start']);
+    echo '</span></li>';
+
+    // print intermediate namespace links
+    $part = '';
+    for($i = 0; $i < $count - 1; $i++) {
+        $part .= $parts[$i].':';
+        $page = $part;
+        if($page == $conf['start']) continue; // Skip startpage
+
+        // output
+        echo $sep;
+        echo '<li>';
+        tpl_pagelink($page);
+        echo '</li>';
+    }
+
+    // print current page, skipping start page, skipping for namespace index
+    resolve_pageid('', $page, $exists);
+    if(isset($page) && $page == $part.$parts[$i]) return true;
+    $page = $part.$parts[$i];
+    if($page == $conf['start']) return true;
+    echo $sep;
+    echo '<li class="active">';
+    tpl_pagelink($page);
+    echo '</li>';
+    
+    echo '</ol>';
+    return true;
+}
+
 
