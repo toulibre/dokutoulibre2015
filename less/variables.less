@@ -4,8 +4,11 @@
 // Variables
 // --------------------------------------------------
 
-@t-yellow:              #9a4e03;
+@t-egg:                 #FFE9C7;
+@t-yellow:              #FFE9C7;
 @t-red:                 #d03d00;
+@t-brown:               #7a2300;
+@t-gray-d:              #DEDEDE;
 @t-gray-f:              #F8F8F8;
 
 //== Colors
@@ -31,7 +34,8 @@
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-@body-bg:               @t-gray-f;
+@body-bg:               @t-gray-d;
+@content-bg:            @t-gray-f;
 //** Global text color on `<body>`.
 @text-color:            @gray-dark;
 
@@ -362,7 +366,7 @@
 @navbar-collapse-max-height:       340px;
 
 @navbar-default-color:             #777;
-@navbar-default-bg:                #f8f8f8;
+@navbar-default-bg:                @t-egg;
 @navbar-default-border:            darken(@navbar-default-bg, 6.5%);
 
 // Navbar links
@@ -388,7 +392,7 @@
 // Inverted navbar
 // Reset inverted navbar basics
 @navbar-inverse-color:                      lighten(@gray-light, 15%);
-@navbar-inverse-bg:                         #222;
+@navbar-inverse-bg:                         @t-brown;
 @navbar-inverse-border:                     darken(@navbar-inverse-bg, 10%);
 
 // Inverted navbar links

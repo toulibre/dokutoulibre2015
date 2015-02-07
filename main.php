@@ -29,7 +29,7 @@ $showTOC = ($ACT == "show") && tpl_toc(true);
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
     <?php tpl_includeFile('meta.html') ?>
-    <link href="<?php echo tpl_getMediaFile(array("css/bootstrap-".tpl_getConf('bootswatch').".min.css")); ?>" rel="stylesheet">
+    <link href="<?php echo tpl_getMediaFile(array("css/bootstrap-".tpl_getConf('bootswatch').".css")); ?>" rel="stylesheet">
     <link href="<?php echo tpl_getMediaFile(array("css/modifications.css")); ?>" rel="stylesheet">
     <script src="<?php echo tpl_getMediaFile(array("js/bootstrap.min.js")); ?>"></script>
 	<script src="<?php echo tpl_getMediaFile(array("js/modifications.js")); ?>"></script>
@@ -48,7 +48,7 @@ $showTOC = ($ACT == "show") && tpl_toc(true);
      	.dokuwiki should always be in one of the surrounding elements (e.g. plugins and templates depend on it) */ ?>
 	<div id="dokuwiki__site">
 		<div id="dokuwiki__top" class="dokuwiki site mode_<?php echo $ACT ?>"></div>
-    	<nav class="navbar navbar-inverse navbar-fixed-top">
+    	<nav class="navbar navbar-default navbar-fixed-top">
     		<div class="container">
 				<div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
@@ -80,7 +80,7 @@ $showTOC = ($ACT == "show") && tpl_toc(true);
 	    <?php html_msgarea() /* occasional error and info messages on top of the page */ ?>
     	<?php tpl_includeFile('header.html') ?>
 
-        <div class="container">
+        <div class="container content-wrapper">
         <!-- ********** SIDE BAR for TOCIFY ********** -->
         	<div class="row">
 				
