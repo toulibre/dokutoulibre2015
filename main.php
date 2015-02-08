@@ -74,6 +74,9 @@ $showTOC = ($ACT == "show") && tpl_toc(true) && (!$isStart);
 
         <hr class="a11y" />
         <!-- ********** SIDE BAR for TOCIFY ********** -->
+            <div class="">
+                <?php if ($isStart) include('tpl_start.php'); ?>
+            </div>
         	<div class="row">
 				
 				
@@ -88,7 +91,6 @@ $showTOC = ($ACT == "show") && tpl_toc(true) && (!$isStart);
             		<div class="col-md-12" id="dokuwiki__content">
 				<?php } ?>
                 	<div class="page">
-                        <?php if ($isStart) include('tpl_start.php'); ?>
 						<?php tpl_flush(); ?>
 						<?php tpl_content(false); ?>
 
