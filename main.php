@@ -16,7 +16,8 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
 # calling tpl_toc() here returns null if the toc wouldn't normally be rendered
 # so $showTOC will be true if TOC would be rendered, false if not
 # this affects our grid layout later ( see 'if ($showTOC)' )
-$showTOC = ($ACT == "show") && tpl_toc(true);
+$isStart = $INFO['id'] == $conf['start'];
+$showTOC = ($ACT == "show") && tpl_toc(true) && (!$isStart);
 
 ?><!DOCTYPE html>
 <html lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>">
@@ -84,11 +85,13 @@ $showTOC = ($ACT == "show") && tpl_toc(true);
            			</div>
            			<div class="col-md-8" id="dokuwiki__content">
 				<?php } else { ?>
-            		<div class="col-md-11" id="dokuwiki__content">
+            		<div class="col-md-12" id="dokuwiki__content">
 				<?php } ?>
                 	<div class="page">
+                        <?php if ($isStart) include('tpl_start.php'); ?>
 						<?php tpl_flush(); ?>
 						<?php tpl_content(false); ?>
+
 						<div class="clearer"></div>
                     </div>
 				</div>
