@@ -29,7 +29,7 @@ if (!defined('DOKU_INC')) die();
                             <?php _tpl_output_page_tools($showTools, 'li'); ?>
                         </li>
                         <?php _tpl_userinfo(); ?>
-                        <li>
+                        <li class="hidden-sm hidden-xs">
                             <div class="navbar-form form-group" role="search">
                                 <?php _tpl_output_search_bar(); ?>
                             </div>
