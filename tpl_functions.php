@@ -283,3 +283,24 @@ function _tpl_youarehere($sep = '') {
 }
 
 
+/**
+ * Parser
+ *
+ * @param string $url RSS feed url
+ * @return bool
+ */
+function _tpl_agenda_short() {
+    require_once(DOKU_INC.'inc/FeedParser.php');
+
+    $feed = new SimplePie('http://www.agendadulibre.org/events.rss?region=16&daylimit=42');
+    echo '<ul class="nav">';
+    foreach ($feed->get_items() as $item){
+        echo '<li>';
+        echo '<a href="'. $item->get_permalink() .'">';
+        echo $item->get_title();
+        echo '</a>';
+        echo '</li>';
+    }
+    echo '</ul>';
+    return true;
+}
