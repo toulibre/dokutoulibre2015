@@ -16,7 +16,7 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
 # calling tpl_toc() here returns null if the toc wouldn't normally be rendered
 # so $showTOC will be true if TOC would be rendered, false if not
 # this affects our grid layout later ( see 'if ($showTOC)' )
-$isStart = $INFO['id'] == $conf['start'];
+$isStart = ($INFO['id'] == $conf['start']) && ($ACT == 'show');
 $showTOC = ($ACT == "show") && tpl_toc(true) && (!$isStart);
 
 ?><!DOCTYPE html>
@@ -56,7 +56,7 @@ $showTOC = ($ACT == "show") && tpl_toc(true) && (!$isStart);
 
         <!-- BREADCRUMBS -->
         <div class="row">
-            <?php if($conf['breadcrumbs'] || $conf['youarehere']): ?>
+            <?php if(!$isStart && ($conf['breadcrumbs'] || $conf['youarehere'])): ?>
                 <div class="breadcrumbs">
                     <?php if($conf['youarehere']): ?>
                         <div class="youarehere"><?php _tpl_youarehere() ?></div>
