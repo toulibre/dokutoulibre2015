@@ -289,15 +289,17 @@ function _tpl_youarehere($sep = '') {
  * @param string $url RSS feed url
  * @return bool
  */
-function _tpl_agenda_short() {
-    require_once(DOKU_INC.'inc/FeedParser.php');
+function _tpl_agenda_short($url) {
 
-    $feed = new SimplePie('http://www.agendadulibre.org/events.rss?region=16&daylimit=42');
     echo '<ul class="nav">';
+    $feed = new SimplePie($url);
+
     foreach ($feed->get_items() as $item){
+        $permalink = $item->get_permalink();
+        $title = $item->get_title();
         echo '<li>';
-        echo '<a href="'. $item->get_permalink() .'">';
-        echo $item->get_title();
+        echo '<a href="'. $permalink .'">';
+        echo $title;
         echo '</a>';
         echo '</li>';
     }
